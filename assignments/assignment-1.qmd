@@ -4,9 +4,11 @@ title: "Assignment 1"
 
 # Assignment 1
 
-My first assignment has four parts.
+My first assignment has three parts.
 
 ## A part
+
+From the selected videos, I chose the "Deploying a Shiny for Python application with Posit Connect" video. The main purpose of this video is to look at the process of distributing the Shiny for Python application from Posit. There is a Shiny for python application called Appy.py. Various packages are installed here to ensure workflow and distribute applications. After creating and running these codes, a URL appears. And deploys the shiny for Python implementation on Posit Connect. Then, after various codes are written and run again, the URL appears again. And this distributes the previous one to Posit Connect. Routes direct distribution to Posit Connect.
 
 ## B part
 
