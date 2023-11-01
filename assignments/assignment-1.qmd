@@ -16,4 +16,4 @@ In R programming, counting starts with 1. It starts with 0 in Python. While R pr
 
 install.packages(dslabs)
 
-data(na_example)
+data(NA_example)
