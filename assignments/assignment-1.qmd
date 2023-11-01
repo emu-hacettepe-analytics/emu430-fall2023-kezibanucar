@@ -21,3 +21,10 @@ library("dslabs")
 data(na_example)
 print(na_example)
 ```
+
+Second, I show you total number of NA
+
+```{r}
+
+
+```
