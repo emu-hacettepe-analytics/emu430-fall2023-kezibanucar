@@ -7,13 +7,13 @@ website:
   navbar:
     search: true
     left:
-      - text: **Home**
+      - text: Home
         href: index.qmd
-      - text: **About** **Me**
+      - text: About Me
         href: about.qmd
-      - text: **My** **Posts**
+      - text: My Posts
         href: posts.qmd
-      - text: **"EMU430 Coursework"**
+      - text: "EMU430 Coursework"
         menu:
           - text: Assignments
             href: assignments.qmd
