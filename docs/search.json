@@ -46,7 +46,7 @@
     "href": "assignments/assignment-1.html",
     "title": "Assignment 1",
     "section": "",
-    "text": "My first assignment has three parts.\n\n\nFrom the selected videos, I chose the “Deploying a Shiny for Python application with Posit Connect” video. The main purpose of this video is to look at the process of distributing the Shiny for Python application from Posit. There is a Shiny for python application called Appy.py. Various packages are installed here to ensure workflow and distribute applications. After creating and running these codes, a URL appears. And deploys the shiny for Python implementation on Posit Connect. Then, after various codes are written and run again, the URL appears again. And this distributes the previous one to Posit Connect. Routes direct distribution to Posit Connect.\n\n\n\nIn R programming, counting starts with 1. It starts with 0 in Python. While R programming uses the ‘&lt;-’ sign to make assignments, Python uses the ‘=’ sign. While R programming has direct function types such as apply and sapply, they do not exist in Python.\n\n\n\nlibrary(dslabs)\ndata(na_example)"
+    "text": "My first assignment has three parts.\n\n\nFrom the selected videos, I chose the “Deploying a Shiny for Python application with Posit Connect” video. The main purpose of this video is to look at the process of distributing the Shiny for Python application from Posit. There is a Shiny for python application called Appy.py. Various packages are installed here to ensure workflow and distribute applications. After creating and running these codes, a URL appears. And deploys the shiny for Python implementation on Posit Connect. Then, after various codes are written and run again, the URL appears again. And this distributes the previous one to Posit Connect. Routes direct distribution to Posit Connect.\n\n\n\nIn R programming, counting starts with 1. It starts with 0 in Python. While R programming uses the ‘&lt;-’ sign to make assignments, Python uses the ‘=’ sign. While R programming has direct function types such as apply and sapply, they do not exist in Python.\n\n\n\ninstall.packages(dslabs)\ndata(na_example)"
   },
   {
     "objectID": "assignments.html",
@@ -81,6 +81,6 @@
     "href": "assignments/assignment-1.html#c-part",
     "title": "Assignment 1",
     "section": "",
-    "text": "library(dslabs)\ndata(na_example)"
+    "text": "install.packages(dslabs)\ndata(na_example)"
   }
 ]
