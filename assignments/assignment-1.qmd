@@ -4,12 +4,12 @@ title: "Assignment 1"
 
 # Assignment 1
 
-```{r}
-1 + 1
-```
+My first assignment has four parts.
 
-My first assignment has two parts.
+## A part
 
-## (a)
+## B part
 
-## (b)
+In R programming, counting starts with 1. It starts with 0 in Python. While R programming uses the '\<-' sign to make assignments, Python uses the '=' sign. While R programming has direct function types such as apply and sapply, they do not exist in Python.
+
+## C part

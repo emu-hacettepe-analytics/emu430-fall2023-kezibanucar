@@ -46,7 +46,7 @@
     "href": "assignments/assignment-1.html",
     "title": "Assignment 1",
     "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
+    "text": "My first assignment has four parts.\n\n\n\n\n\nIn R programming, counting starts with 1. It starts with 0 in Python. While R programming uses the ‘&lt;-’ sign to make assignments, Python uses the ‘=’ sign. While R programming has direct function types such as apply and sapply, they do not exist in Python."
   },
   {
     "objectID": "assignments.html",
@@ -61,5 +61,12 @@
     "title": "My Blog",
     "section": "",
     "text": "This page is under construction.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#b-part",
+    "href": "assignments/assignment-1.html#b-part",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "In R programming, counting starts with 1. It starts with 0 in Python. While R programming uses the ‘&lt;-’ sign to make assignments, Python uses the ‘=’ sign. While R programming has direct function types such as apply and sapply, they do not exist in Python."
   }
 ]
