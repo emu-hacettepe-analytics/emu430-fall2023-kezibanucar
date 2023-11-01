@@ -3,6 +3,8 @@ title: "About Me"
 sidebar: false 
 ---
 
+Before the summary information, you can see my CV in this link. \[My CV\] (<https://www.canva.com/design/DAFqLpZSKXs/72AchpEoX0xPMEOU53PLow/edit>)
+
 # Education
 
 -   B.S., Industrial Engineering, Hacettepe University, Turkey, 2020 - ongoing.
