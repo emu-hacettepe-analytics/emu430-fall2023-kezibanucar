@@ -17,7 +17,7 @@ In R programming, counting starts with 1. It starts with 0 in Python. While R pr
 Firstly, I show you data set.
 
 ```{r}
-library("dslabs")
+library(dslabs)
 data(na_example)
 print(na_example)
 ```
@@ -25,5 +25,21 @@ print(na_example)
 And this is total number of NA
 
 ```{r}
-length(na_example[NA])
+total_number_na <- sum(is.na(na_example))
+print(total_number_na)
+```
+
+Secondly, I create new data set.
+
+```{r}
+new_data_frame <- na_example
+new_data_frame[is.na(new_data_frame)] <- 0 
+print(new_data_frame)
+```
+
+And I find total number of NA
+
+```{r}
+total_nas <- sum(is.na(new_data_frame))
+cat("Total number of NAs in the new data frame:", total_nas, "\n")
 ```
