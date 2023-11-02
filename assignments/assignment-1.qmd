@@ -29,7 +29,7 @@ total_number_na <- sum(is.na(na_example))
 print(total_number_na)
 ```
 
-Secondly, I create new data set.
+[Secondly, I create new data set.]{.underline}
 
 ```{r}
 new_data_frame <- na_example
@@ -37,9 +37,13 @@ new_data_frame[is.na(new_data_frame)] <- 0
 print(new_data_frame)
 ```
 
-And I find total number of NA
+[And I find total number of NA]{.underline}
 
 ```{r}
 total_nas <- sum(is.na(new_data_frame))
 cat("Total number of NAs in the new data frame:", total_nas, "\n")
 ```
+
+### Note:
+
+I solved the relevant codes in the underlined parts of the C part with help from ChatGPT. In this help, I learned how to replace certain variables in the data with another variable and the use of the cat() function.
