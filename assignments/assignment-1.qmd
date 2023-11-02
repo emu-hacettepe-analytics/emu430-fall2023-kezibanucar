@@ -22,9 +22,8 @@ data(na_example)
 print(na_example)
 ```
 
-Second, I show you total number of NA
+And this is total number of NA
 
 ```{r}
-
-
+length(na_example[NA])
 ```
