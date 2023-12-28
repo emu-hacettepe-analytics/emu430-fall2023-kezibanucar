@@ -9,6 +9,7 @@ First of all, I wrote the codes that put Turkish movies between 2010-2023 and be
 ```{r}
 library(rvest)
 library(tidyverse)
+library(dplyr)
 
 Title=c()
 Year=c() 
