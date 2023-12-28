@@ -4,6 +4,84 @@ title: "Assignment 2"
 
 # Assignment 2
 
+First of all, I wrote the codes that put Turkish movies between 2010-2023 and before 2009 under a data frame as follows.
+
 ```{r}
-1 + 1
+library(rvest)
+library(tidyverse)
+
+after_2010 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+
+before_2010 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+
+movies_after_2010 <- read_html(after_2010)
+movies_before_2010 <- read_html(before_2010)
+
+
+title_names_a <- movies_after_2010 |> html_nodes('.ipc-title__text')
+title_names_a <- html_text(title_names_a)
+title_names_a <- tail(head(title_names_a,-1),-1)
+title_names_a <- str_split(title_names_a, " ", n=2)
+title_names_a <- unlist(lapply(title_name_a, function(x) {x[2]}))
+
+movies_year_a <-movies_after_2010|> html_nodes('.dli-title-metadata-item:nth-child(1)')
+movies_year_a <- html_text(movies_year_a)
+movies_year_a <- as.numeric(movies_year_a)
+
+movies_duration_a <- movies_after_2010|> html_nodes('.dli-title-metadata-item:nth-child(2)')
+movies_duration_a <- html_text(movies_duration_a)
+movies_duration_a <- sapply(str_extract_all(movies_duration_a, "\\d+"), function(x) {
+  x1 <- as.numeric(x)
+  if(length(x1)>1) x1[1]*60 + x1[2] else x1 })
+
+movies_rating_a <- movies_after_2010 |> html_nodes('.ratingGroup--imdb-rating')
+movies_rating_a <- html_text(movies_rating_a)
+movies_rating_a <- as.numeric(substr(movies_rating_a,1,3))
+
+
+movies_vote_a <- movies_after_2010|> html_nodes('.kRnqtn')
+movies_vote_a <- html_text(movies_vote_a)
+movies_vote_a <- parse_number(movies_vote_a)
+
+title_names_b <- movies_before_2010 |> html_nodes('.ipc-title__text')
+title_names_b <- html_text(title_names_b)
+title_names_b <- tail(head(title_names_b,-1),-1)
+title_names_b <- str_split(title_names_b, " ", n=2)
+title_names_b <- unlist(lapply(title_names_b, function(x) {x[2]}))
+
+movies_year_b <- movies_before_2010 |> html_nodes('.dli-title-metadata-item:nth-child(1)')
+movies_year_b <- html_text(movies_year_b)
+movies_year_b <- as.numeric(movies_year_b)
+
+movies_duration_b <- movies_before_2010 |> html_nodes('.dli-title-metadata-item:nth-child(2)')
+movies_duration_b <- html_text(movies_duration_b)
+movies_duration_b <- sapply(str_extract_all(movies_duration_b, "\\d+"), function(x) {
+  x1 <- as.numeric(x)
+  if(length(x1)>1) x1[1]*60 + x1[2] else x1 })
+
+movies_rating_b <- movies_before_2010 |> html_nodes('.ratingGroup--imdb-rating')
+movies_rating_b <- html_text(movies_rating_b)
+movies_rating_b <- as.numeric(substr(movies_rating_b,1,3))
+
+
+movies_vote_b <- movies_before_2010 |> html_nodes('.kRnqtn')
+movies_vote_b <- html_text(movies_vote_b)
+movies_vote_b <- parse_number(movies_vote_b)
+
+
+df_after_2010 <- data.frame(
+  Title = title_names_a,
+  Year = movies_year_a,
+  Duration = movies_duration_a,
+  Rating = movies_rating_a,
+  Votes = movies_vote_a
+)
+df_before_2010 <- data.frame(
+  Title=title_names_b,
+  Year= movies_year_b,
+  Duration= movies_duration_b,
+  Rating = movies_rating_b,
+  Votes= movies_vote_b
+)
+movies <- bind_rows(df_after_2010,df_before_2010)
 ```
