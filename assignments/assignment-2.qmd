@@ -25,7 +25,9 @@ title_names_a <- movies_after_2010 |> html_nodes('.ipc-title__text')
 title_names_a <- html_text(title_names_a)
 title_names_a <- tail(head(title_names_a,-1),-1)
 title_names_a <- str_split(title_names_a, " ", n=2)
-title_names_a <- unlist(lapply(title_name_a, function(x) {x[2]}))
+title_names_a <- unlist(lapply(title_names_a, function(x) {x[2]}))
+
+
 
 year_a <-movies_after_2010|> html_nodes('.dli-title-metadata-item:nth-child(1)')
 year_a <- html_text(year_a)
@@ -93,16 +95,16 @@ I can show my favorite movie as follows.
 ```{r}
 #for Babam ve Oğlum
 movie_title <- "Babam ve Oğlum" 
-movie_base <- Movies_all[Movies_all$Title == desired_movie_title, !(names(Movies_all) %in% "Rank")]
+movie_base <- Movies_all[Movies_all$Title ==movie_title, !(names(Movies_all) %in% "Rank")]
 print(movie_base,movie_title)
 ```
 
 Also, I can show the correlation of Votes and Rating
 
 ```{r}
-correlation <- cor(movies_all$Votes,movies_all$Rating)
+correlation <- cor(Movies_all$Votes,Movies_all$Rating)
 cat("Correlation between Votes and Rating", correlation, "\n")
-ggplot(movies, aes(x = Rating, y = Votes)) +
+ggplot(Movies_all, aes(x = Rating, y = Votes)) +
   geom_point() +
   labs(x = "Rating of Movies", y = "Votes of Movies")
 ```
@@ -113,13 +115,13 @@ For the Top 1000 List
 first_1000<- "https://m.imdb.com/search/title/?title_type=feature&groups=top_1000&country_of_origin=TR&count=250"
 
 turkish_first_1000 <- read_html(first_1000)
-title_of_first_1000 <- turkish_top_1000 |> html_nodes('.ipc-title__text')
+title_of_first_1000 <- turkish_first_1000 |> html_nodes('.ipc-title__text')
 title_of_first_1000 <- html_text(title_of_first_1000)
 title_of_first_1000 <- tail(head(title_of_first_1000,-1),-1)
 title_of_first_1000 <- str_split(title_of_first_1000, " ", n=2)
 title_of_first_1000 <- unlist(lapply(title_of_first_1000, function(x) {x[2]}))
 
-year_of_first_100 <- turkish_top_1000 |> html_nodes('.dli-title-metadata-item:nth-child(1)')
+year_of_first_100 <- turkish_first_1000 |> html_nodes('.dli-title-metadata-item:nth-child(1)')
 year_of_first_100 <- html_text(year_of_first_100)
 year_of_first_100 <- as.numeric(year_of_first_100)
 
@@ -127,6 +129,6 @@ turkish_df <- data.frame(
   Title = title_of_first_1000,
   Year = year_of_first_100
 )
-gathered <- inner_join(turkish_df, movies, by = c("Title" = "Title", "Year" = "Year"))
+gathered <- inner_join(turkish_df, Movies_all, by = c("Title" = "Title", "Year" = "Year"))
 order_gathered <- gathered %>% arrange(Rating,desc(Rating))
 ```
