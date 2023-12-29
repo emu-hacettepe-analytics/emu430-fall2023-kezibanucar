@@ -93,8 +93,8 @@ Movies_all%>%arrange(desc(movies_rating))%>%tail(5)
 I can show my favorite movie as follows.
 
 ```{r}
-#for Babam ve Oğlum
-movie_title <- "Babam ve Oğlum" 
+
+movie_title <- "Ahlat Agaci" 
 movie_base <- Movies_all[Movies_all$Title ==movie_title, !(names(Movies_all) %in% "Rank")]
 print(movie_base,movie_title)
 ```
