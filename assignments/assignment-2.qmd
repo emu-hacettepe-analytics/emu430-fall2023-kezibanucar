@@ -11,11 +11,7 @@ library(rvest)
 library(tidyverse)
 library(dplyr)
 
-movies_title=c()
-movies_year=c() 
-movies_duration=c()
-movies_eating=c() 
-movies_votes=c()
+
 
 after_2010 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250"
 
@@ -82,5 +78,55 @@ movies_year=c(year_a,movies_year_b)
 movies_duration=c(duration_a,movies_duration_b)
 movies_votes=c(vote_a,movies_vote_b)
 
-Movies_all=data.frame(movies_title,movies_year,movies_duration,movies_rating,movies_votes)
+Movies_all=data.frame(Title=movies_title, Year=movies_year,Duration=movies_duration,Rating=movies_rating,Votes=movies_votes)
+```
+
+Secondly, if there were no errors, I would write the first 5 and last 5 codes of all movies as follows.
+
+```{r}
+Movies_all%>%arrange(desc(movies_rating))%>%head(5)
+Movies_all%>%arrange(desc(movies_rating))%>%tail(5)
+```
+
+I can show my favorite movie as follows.
+
+```{r}
+#for Babam ve Oğlum
+movie_title <- "Babam ve Oğlum" 
+movie_base <- Movies_all[Movies_all$Title == desired_movie_title, !(names(Movies_all) %in% "Rank")]
+print(movie_base,movie_title)
+```
+
+Also, I can show the correlation of Votes and Rating
+
+```{r}
+correlation <- cor(movies_all$Votes,movies_all$Rating)
+cat("Correlation between Votes and Rating", correlation, "\n")
+ggplot(movies, aes(x = Rating, y = Votes)) +
+  geom_point() +
+  labs(x = "Rating of Movies", y = "Votes of Movies")
+```
+
+For the Top 1000 List
+
+```{r}
+first_1000<- "https://m.imdb.com/search/title/?title_type=feature&groups=top_1000&country_of_origin=TR&count=250"
+
+turkish_first_1000 <- read_html(first_1000)
+title_of_first_1000 <- turkish_top_1000 |> html_nodes('.ipc-title__text')
+title_of_first_1000 <- html_text(title_of_first_1000)
+title_of_first_1000 <- tail(head(title_of_first_1000,-1),-1)
+title_of_first_1000 <- str_split(title_of_first_1000, " ", n=2)
+title_of_first_1000 <- unlist(lapply(title_of_first_1000, function(x) {x[2]}))
+
+year_of_first_100 <- turkish_top_1000 |> html_nodes('.dli-title-metadata-item:nth-child(1)')
+year_of_first_100 <- html_text(year_of_first_100)
+year_of_first_100 <- as.numeric(year_of_first_100)
+
+turkish_df <- data.frame(
+  Title = title_of_first_1000,
+  Year = year_of_first_100
+)
+gathered <- inner_join(turkish_df, movies, by = c("Title" = "Title", "Year" = "Year"))
+order_gathered <- gathered %>% arrange(Rating,desc(Rating))
 ```
