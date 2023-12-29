@@ -94,9 +94,9 @@ I can show my favorite movie as follows.
 
 ```{r}
 
-movie_title <- "Ahlat Agaci" 
+movie_title <- "Yeralti" 
 movie_base <- Movies_all[Movies_all$Title ==movie_title, !(names(Movies_all) %in% "Rank")]
-print(movie_base,movie_title)
+print(movie_base)
 ```
 
 Also, I can show the correlation of Votes and Rating

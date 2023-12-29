@@ -367,13 +367,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>I can show my favorite movie as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#for Babam ve Oğlum</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>movie_title <span class="ot">&lt;-</span> <span class="st">"Babam ve Oğlum"</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>movie_base <span class="ot">&lt;-</span> Movies_all[Movies_all<span class="sc">$</span>Title <span class="sc">==</span>movie_title, <span class="sc">!</span>(<span class="fu">names</span>(Movies_all) <span class="sc">%in%</span> <span class="st">"Rank"</span>)]</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(movie_base,movie_title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>movie_title <span class="ot">&lt;-</span> <span class="st">"Yeralti"</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>movie_base <span class="ot">&lt;-</span> Movies_all[Movies_all<span class="sc">$</span>Title <span class="sc">==</span>movie_title, <span class="sc">!</span>(<span class="fu">names</span>(Movies_all) <span class="sc">%in%</span> <span class="st">"Rank"</span>)]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(movie_base)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] Title    Year     Duration Rating   Votes   
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<pre><code>     Title Year Duration Rating Votes
+37 Yeralti 2012      107    7.1 10083</code></pre>
 </div>
 </div>
 <p>Also, I can show the correlation of Votes and Rating</p>
