@@ -11,11 +11,11 @@ library(rvest)
 library(tidyverse)
 library(dplyr)
 
-Title=c()
-Year=c() 
-Duration=c()
-Rating=c() 
-Votes=c()
+movies_title=c()
+movies_year=c() 
+movies_duration=c()
+movies_eating=c() 
+movies_votes=c()
 
 after_2010 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250"
 
@@ -82,5 +82,5 @@ movies_year=c(year_a,movies_year_b)
 movies_duration=c(duration_a,movies_duration_b)
 movies_votes=c(vote_a,movies_vote_b)
 
-Movies_all=data.frame(Title=movies_title,Rating=movies_rating,Year=movies_year,Duration=movies_duration,Votes=movies_votes)
+Movies_all=data.frame(movies_title,movies_year,movies_duration,movies_rating,movies_votes)
 ```
